@@ -1,0 +1,42 @@
+<div class="modal overlay" id="myModal" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel">Add Income</h3>
+  </div>
+  <%= form_for [current_user, @income], :html => {:method => :post, :class => "form-horizontal"} do |f| %>
+    <div class="modal-body">
+      <div class="control-group">
+        <%= f.label :amount, "Amount", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :amount, :placeholder => "100.00" %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="tag_names">Tags</label>
+        <div class="controls">
+          <%= text_field_tag :tag_names, nil, :placeholder => "Tag Name" %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="date">Date</label>
+        <div class="controls">
+          <%= text_field_tag :generated_date, I18n.localize(@income.generated_date, :format => "%d/%I/%Y"), :class => "date-field uneditable-input" %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :description, "Description", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_area :description, :rows => 3, :placeholder => "Sample Description" %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= f.submit "Add Income", :class => "btn btn-primary", :id => "add-income-btn" %>
+    </div>
+  <% end %>
+</div>

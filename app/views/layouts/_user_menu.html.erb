@@ -1,0 +1,7 @@
+<header class="navbar-submenu clearfix">
+  <ul>
+    <li class='<%= params[:controller].eql?("incomes") ? "active" : "" %>'><%= link_to "Income", user_incomes_path(current_user) %></li>
+    <li class='<%= params[:controller].eql?("expenses") ? "active" : "" %>'><%= link_to "Expenses", user_expenses_path(current_user) %></li>
+    <li class='<%= params[:controller].eql?("budgets") ? "active" : "" %>'><%= link_to "Budgets", user_budgets_path(current_user) %></li>
+   </ul>
+</header>

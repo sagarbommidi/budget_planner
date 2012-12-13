@@ -1,0 +1,9 @@
+
+
+<h2>
+	Here is the user profile, Please visit later and update.
+</h2>
+
+<%= current_user.email %>
+
+<h4><%= link_to "Sign out", destroy_user_session_path(), :method => :delete %> </h4>

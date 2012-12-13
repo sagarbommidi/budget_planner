@@ -1,0 +1,8 @@
+<a href="javascript:void(0)" class="brand">Budget Planner</a>
+
+<% if user_signed_in? %>
+  <ul class="nav pull-right">
+  	<li><%= link_to "Profile", user_profile_path(current_user) %></li>
+  	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+  </ul>
+<% end %>

@@ -1,0 +1,72 @@
+/**
+*    Toshl OS buttons
+*
+*    Skin: Default
+*
+*    @author  David Panzalović
+*    @version 1.1
+**/
+
+/* =OS buttons
+----------------------------------------------- */
+.buttons_os li:first-child a {
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.buttons_os .l a {
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.buttons_os a {
+    text-indent: 100%;
+    white-space: nowrap;
+    background: #999382; /* Old browsers */
+    background: -moz-linear-gradient(top, #c7bfa9 0%, #999382 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c7bfa9), color-stop(100%,#999382)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #c7bfa9 0%,#999382 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #c7bfa9 0%,#999382 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #c7bfa9 0%,#999382 100%); /* IE10+ */
+    background: linear-gradient(top, #c7bfa9 0%,#999382 100%); /* W3C */
+}
+
+.buttons_os a:hover {
+    background: #de363d; /* Old browsers */
+    background: -moz-linear-gradient(top, #de363d 0%, #ad242a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#de363d), color-stop(100%,#ad242a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #de363d 0%,#ad242a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #de363d 0%,#ad242a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #de363d 0%,#ad242a 100%); /* IE10+ */
+    background: linear-gradient(top, #de363d 0%,#ad242a 100%); /* W3C */
+}
+
+    .buttons_os span {
+        background: url(../../../../images/Default/sprite/sprite_os_buttons.png) no-repeat;
+        border-left: 1px solid #cac3b2;
+        border-right: 1px solid #9a9382;
+    }
+
+    .buttons_os.indexPage span     { background: url(../../../../images/Default/main/sprite_main.png)    no-repeat }
+    .v2 .buttons_os.indexPage span { background: url(../../../../images/Default/main/sprite_main_v2.png) no-repeat }
+
+    .buttons_os a:hover span {
+        border-left-color: #cf4c52;
+        border-right-color: #9e242a;
+    }
+
+    .buttons_os li:first-child span { border-left:  0 }
+    .buttons_os .l span             { border-right: 0 }
+
+    .buttons_os .iphone span        { background-position: 54px    9px }
+    .buttons_os .android span       { background-position: 45px  -52px }
+    .buttons_os .blackberry span    { background-position: 43px -110px }
+    .buttons_os .symbian span       { background-position: 55px -168px }
+    .buttons_os .windows_phone span { background-position: 45px -235px }
+    .buttons_os.indexPage .iphone span        { background-position: 30px    7px }
+    .buttons_os.indexPage .android span       { background-position: 20px  -76px }
+    .buttons_os.indexPage .symbian span       { background-position: 25px -157px }
+    .buttons_os.indexPage .windows_phone span { background-position: 28px -237px }
+    .buttons_os.indexPage .web span           { background-position: 25px -314px }

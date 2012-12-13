@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>BudgetPlanner</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+	    <nav class="navbar-inner">
+	    	<div class="container">
+					<%= render :partial => "layouts/header" %>
+	      </div>
+	    </nav>
+	  </div>
+	  <% if current_user.present? %>
+	  	<%= render :partial => 'layouts/user_menu' %>
+	  <% end %>
+	  <div id="main" role="main">
+	    <div class="container">
+	      <div class="content">
+	      	<%= render :partial => "layouts/notification" %>
+	  			<%= yield %>
+					<%= yield :popup %>
+	      </div>
+	    </div> <!--! end of .container -->
+	  </div> <!--! end of #main -->
+	  <footer>
+	  </footer>
+	</body>
+</html>

@@ -1,0 +1,2 @@
+Fabricator(:income) do
+end

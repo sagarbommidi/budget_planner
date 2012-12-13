@@ -1,0 +1,22 @@
+<h3>Your Total Income : <%= current_user.incomes.sum(&:amount) %></h3>
+
+
+<a href="#myModal" data-toggle="modal">Add Income</a>
+
+<h4>Tags</h4>
+<table>
+  <tr>
+    <th>Tag</th>
+    <th>Income</th>
+  </tr>
+  <% current_user.tags.each do |tag| %>
+    <tr>
+      <td><%= tag.name %></td>
+      <td><%= tag.incomes.sum(&:amount) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% content_for :popup do %>
+  <%= render :partial => "incomes/income_form" %>
+<% end %>

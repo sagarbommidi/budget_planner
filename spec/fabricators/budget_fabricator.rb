@@ -1,0 +1,2 @@
+Fabricator(:budget) do
+end

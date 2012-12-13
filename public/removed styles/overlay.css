@@ -1,0 +1,151 @@
+/**
+ *    Toshl Overlay
+ *
+ *    @author  David Panzalović
+ *    @author  Matej Keglevič
+ *    @version 1.0
+ **/
+
+/* =Overlay
+----------------------------------------------- */
+#overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+/* =Overlay box
+----------------------------------------------- */
+#overlay_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+}
+
+    #overlay_container > div {
+        width: 375px; /* 410px */
+        margin-left: -216px;
+        padding: 10px 20px 24px 20px;
+        float: left;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+
+        #overlay_container > div > .closeOverlay,
+        #overlay_container > div .closeCustomCurrency {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            border: 0;
+            z-index: 10000;
+        }
+
+            #overlay_container > div .closeCustomCurrency {
+                top: 4px;
+                right: 22px;
+            }
+
+        #overlay_container > div .buttonizer {
+            width: 185px;
+            padding-left: 190px;
+            clear: both;
+            float: left;
+        }
+
+        #overlay_container > div dt#exchange_rate-label {
+            padding-top: 2px;
+        }
+
+        #overlay_container > div #amount-element .input.price.custom {
+            width: 94px;
+        }
+
+        #overlay_container > div #currency-element + dd {
+            width: 38px;
+            position: absolute;
+            top: 0;
+            right: 75px;
+        }
+
+            #overlay_container > div #currency-element + dd .input {
+                width: 100%;
+            }
+
+        #overlay_container > div dd #exchange_rate {
+            width: 65px;
+            margin-right: 16px;
+        }
+
+        #overlay_container > div h3 {
+            padding: 26px 0 0 135px;
+            margin-bottom: 18px;
+            float: left;
+        }
+
+        #overlay_container form,
+        #overlay_container fieldset {
+            width: 100%;
+            float: left;
+            position: relative;
+        }
+
+            #overlay_container > div form p,
+            #overlay_container > div > p {
+                line-height: 1.4;
+                padding-left: 75px;
+                margin: 24px 0 16px 0;
+            }
+
+            #overlay_container > div form p.full,
+            #overlay_container > div > p.full {
+                width: 300px;
+            }
+
+        /* Buttons */
+        #overlay_container .buttons {
+            width: 236px;
+            margin: 8px 69px 24px 70px;
+        }
+
+            #overlay_container .buttons li {
+                width: 118px;
+            }
+
+/* Loading */
+#overlay_container .loading,
+#content #overlay_container .loading {
+    padding: 10px 20px 24px 20px;
+    margin: -10px 0 0 -20px;
+}
+
+/* Fancy overlay */
+.fancyOverlay {
+    width: 767px; /* 827px */
+    padding: 30px;
+    position: absolute;
+    left: 59px;
+    top: -12px;
+    display: none;
+    z-index: 50000;
+}
+
+    .fancyOverlay .closeOverlay {
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
