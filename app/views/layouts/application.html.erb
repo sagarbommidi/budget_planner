@@ -14,11 +14,11 @@
         </div>
       </nav>
     </div>
-    <% if current_user.present? %>
-      <%= render :partial => 'layouts/user_menu' %>
-    <% end %>
     <div id="main" role="main">
       <div class="container">
+        <% if current_user.present? %>
+          <%= render :partial => 'layouts/user_menu' %>
+        <% end %>
         <div class="content">
           <%= render :partial => "layouts/notification" %>
           <%= yield %>

@@ -3,12 +3,16 @@ body {
   font-family: CallunaSansRegular, Arial, serif;
 }
 
+#main .container {
+  padding-top: 20px;
+}
+
 .content {
   background-color: #EBF0E5;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   border-radius: 0 0 6px 6px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
@@ -20,14 +24,16 @@ body {
   background: -moz-linear-gradient(top, #DCEBBB, #B6CE80);
   background: -webkit-gradient(linear, left top, left bottom, from(#DCEBBB), to(#B6CE80));
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#DCEBBB', EndColorStr='#B6CE80');
+  border-radius: 6px 6px 3px 3px;
   -moz-box-shadow: 0 0 1px 1px #ccd1d0;
   -webkit-box-shadow: 0 0 1px 1px #CCD1D0;
   box-shadow: 0 0 1px 1px #CCD1D0;
   border-bottom: #C0DA9A 1px solid;
   border-top: #F0F9CC 1px solid;
   height: 50px;
-  width: 978px;
+  width: 980px;
   margin: 0 auto;
+  margin-left: -20px;
 }
 
 .navbar-submenu ul {
@@ -37,8 +43,10 @@ body {
 }
 .navbar-submenu ul li {
   float: left;
-  height: 50px;
-  width: 120px;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  margin-top: 4px;
 }
 
 .navbar-submenu li a {
@@ -47,7 +55,8 @@ body {
   display: block;
   text-shadow: 0 1px 0 #D7E6B3;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
+  text-decoration: none;
 }
 
 .navbar-submenu li.active {
@@ -67,4 +76,37 @@ form {
 
 .date-field {
   cursor: pointer;
+}
+
+.tag-list {
+  width: 350px;
+  margin-left: 58px;
+  max-height: 75px;  
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.tag-list ul {
+  float: right;
+  display: block;
+  list-style: none;
+  width: 310px;
+  margin: 4px 0 0 0;
+}
+
+.tag-list li {
+  color: #FFFFFF;
+  background-color: #53944E;
+  height: 25px;
+  float: right;
+  margin: 0 10px 8px 0;
+  padding: 3px 10px 0 10px;
+  border-radius: 15px;
+  -moz-box-shadow: 15px #ccd1d0;
+  -webkit-box-shadow: 15px #CCD1D0;
+  cursor: pointer;
+}
+
+.tag-list li.selected {
+  background: #84857A;
 }

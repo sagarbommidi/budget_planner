@@ -11,6 +11,7 @@ class Income
   belongs_to :tag
 
   validates_presence_of :amount, :description, :generated_date, :tag
-  # validates_format_of :amount#, /^\d+[.\d{1,2}]/
+  validates :amount, :numericality => {:message => "is not valid"}
 
+  default_scope order_by([:generated_date, :desc])
 end

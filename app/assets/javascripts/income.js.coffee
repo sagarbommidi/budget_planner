@@ -33,4 +33,4 @@ jQuery ($) ->
     else
       remove_error_styles("income_description")
     
-    return false if !is_validated
+    return is_validated

@@ -10,6 +10,8 @@ class Tag
 
   validates :name, presence: true, :uniqueness => { :case_sensitive => false }
 
+  default_scope order_by([:name, :asc])
+
   def self.find_or_create_tags(names, user)
     tags = []
     names.strip.split(',').each do |value|
@@ -22,4 +24,5 @@ class Tag
     end
     tags
   end
+
 end

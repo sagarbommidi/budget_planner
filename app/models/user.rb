@@ -71,4 +71,8 @@ class User
   def is?(role)
     roles.include?(role.to_s)
   end
+
+  def get_tags
+    tags.collect(&:name)
+  end
 end

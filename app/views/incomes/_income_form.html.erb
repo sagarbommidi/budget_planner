@@ -19,6 +19,13 @@
           <span class="help-inline"></span>
         </div>
       </div>
+      <div class="control-group tag-list" id="tag-list">
+        <ul>
+          <% current_user.tags.each do |tag| %>
+            <li name-attr='<%= tag.name %>'><%= tag.name %></li>
+          <% end %>
+        </ul>
+      </div>
       <div class="control-group">
         <label class="control-label" for="date">Date</label>
         <div class="controls">
@@ -40,3 +47,7 @@
     </div>
   <% end %>
 </div>
+
+<%= javascript_tag do %>
+  window.userTags = "<%= current_user.get_tags %>";
+<% end %>
