@@ -14,4 +14,13 @@ class Income
   validates :amount, :numericality => {:message => "is not valid"}
 
   default_scope order_by([:generated_date, :desc])
+
+  before_create :update_tag_counter
+
+  private
+
+  def update_tag_counter
+    tag.inc(:incomes_counter, 1)
+  end
+
 end

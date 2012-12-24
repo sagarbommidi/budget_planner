@@ -28,8 +28,11 @@ group :test do
   gem "capybara"
   gem "fabrication"
   gem "simplecov"
+  gem "rspec-cells"
 end
 
 gem 'bootstrap-sass' # for using the views designs styles developed by the Twitter Bootstrap
 
 gem 'draper' # for using the features of Decorators in the application
+gem 'cells'
+gem 'draper'

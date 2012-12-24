@@ -1,0 +1,21 @@
+<div id="timeline">
+  <ul>
+    <% @components.each do |key, components| %>
+      <li class="title">
+        <%= date_in_words(key) %>
+        <span>&#8377; <%= components.sum(&:amount) %></span>
+      </li>
+      <% components.each do |component| %>
+      <%= link_to(send("user_#{@get_component}_path", @user, component), :remote => true) do %>
+          <li>
+            <%= component.tag.name %>
+            <span>&#8377; <%= component.amount %></span>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div id="component-container"></div>
+<div class="clearfix"></div>

@@ -1,1 +1,26 @@
-<h3>Your Total Expenses : <%= current_user.expenses.sum(&:amount) %></h3>
+<h3>Your Total Expense : <%= current_user.expenses.sum(&:amount) %></h3>
+
+<div class="addNew_container">
+  <span>+</span>
+  <a href="#myModal" data-toggle="modal" class="addNew">Add Expense</a>
+</div>
+
+<div class="separator">
+  <ul class="buttons">
+    <li class="selected" id="timeline-btn"><a href="javascript:void(0)">Timeline</a></li>
+    <li id='tags-btn'><a href="javascript:void(0)">Tags</a></li>
+  </ul>
+</div>
+
+<div id="timeline-container">
+  <%= render_cell :timeline, :index, :user => current_user, :component => "expenses" %>
+</div>
+
+
+<div id="tags-container" style="display: none;">
+  <%= render_cell :tag, :index, :user => current_user, :component => "expenses" %>
+</div>
+
+<% content_for :popup do %>
+  <%= render_cell :component, :new, :user => current_user, :component => "expenses" %>
+<% end %>

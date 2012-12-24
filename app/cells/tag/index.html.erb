@@ -1,0 +1,24 @@
+<div id="tags">
+  <% @tags.each_with_index do |(key,tags), index| %>
+    <% if index % 3 == 0 %>
+      <div class="tag-content">
+    <% end %>
+    <dl>
+      <dt><%= key.upcase %></dt>
+      <% tags.each do |tag| %>
+        <dd>
+          <span><%= tag.send("#{@get_component}_counter") %></span>
+          <%= link_to tag.name, user_tag_path(@user, tag, :component => @get_component) %>
+          <ul>
+            <li><a href="#"></a></li>
+            <li>&#8377; <%= tag.send(@get_component).sum(&:amount) %></li>
+          </ul>
+        </dd>
+      <% end %>
+    </dl>
+    <% if (index%3 == 2) || (index == @tags.count-1) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="clearfix"></div>

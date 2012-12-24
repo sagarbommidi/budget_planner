@@ -1,7 +1,6 @@
 class IncomesController < ApplicationController
 
-  def index
-    @income = Income.new
+  def index    
   end
 
   def create
@@ -13,5 +12,9 @@ class IncomesController < ApplicationController
       current_user.save
     end
     redirect_to :back
+  end
+
+  def show
+    @income = current_user.incomes.find(params[:id])
   end
 end

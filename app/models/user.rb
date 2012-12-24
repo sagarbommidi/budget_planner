@@ -51,9 +51,9 @@ class User
   validates_presence_of :email
   validates_presence_of :encrypted_password
 
-  has_many :incomes
-  has_many :expenses
-  has_many :tags
+  has_many :incomes, dependent: :destroy
+  has_many :expenses, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   # see https://github.com/ryanb/cancan/wiki/Role-Based-Authorization
   ROLES = %w[admin user]
@@ -72,7 +72,31 @@ class User
     roles.include?(role.to_s)
   end
 
-  def get_tags
+  def tag_names
     tags.collect(&:name)
+  end
+
+  def sorted_tags(components)
+    hash = {}
+    tags.includes(components.to_sym).each do |tag|
+      if tag.send("#{components}_counter") > 0
+        key =  tag.name[0].downcase
+        hash[key] ||= []
+        hash[key] << tag
+      end
+    end
+    hash.sort
+  end
+  
+  ['incomes', 'expenses'].each do |components|
+    define_method('sorted_' + components) do 
+      hash = {}
+      self.send(components).each do |component|
+        key =  component.generated_date
+        hash[key] ||= []
+        hash[key] << component
+      end
+      hash
+    end
   end
 end

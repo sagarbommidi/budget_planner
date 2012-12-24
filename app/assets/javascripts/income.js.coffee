@@ -11,15 +11,15 @@ remove_error_styles = (attr_id) ->
   $('#' + attr_id).siblings('.help-inline').text('')
 
 jQuery ($) ->
-  $('#add-income-btn').live "click", ->
+  $('#add-component-btn').live "click", ->
     is_validated = true
-    amount = parseFloat($('#income_amount').val())
+    amount = parseFloat($('#component-amount').val())
     if isNaN(amount)
       is_validated = false
-      add_error_styles("income_amount", "please enter valid amount")
+      add_error_styles("component-amount", "please enter valid amount")
     else
-      $('#income_amount').val(amount)
-      remove_error_styles("income_amount")
+      $('#component-amount').val(amount)
+      remove_error_styles("component-amount")
 
     if $('#tag_names').val().trim() == ''
       is_validated = false
@@ -27,10 +27,22 @@ jQuery ($) ->
     else
       remove_error_styles("tag_names")
 
-    if $('#income_description').val().trim() == ''
+    if $('#component-description').val().trim() == ''
       is_validated = false
-      add_error_styles("income_description", "please enter description")
+      add_error_styles("component-description", "please enter description")
     else
-      remove_error_styles("income_description")
+      remove_error_styles("component-description")
     
     return is_validated
+
+  $('#tags-btn').live 'click', ->
+    $('#tags-btn').addClass('selected')
+    $('#timeline-btn').removeClass('selected')
+    $('#timeline-container').hide()
+    $('#tags-container').show()
+
+  $('#timeline-btn').live 'click', ->
+    $('#timeline-btn').addClass('selected')
+    $('#tags-btn').removeClass('selected')
+    $('#tags-container').hide()
+    $('#timeline-container').show()

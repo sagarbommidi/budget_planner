@@ -1,0 +1,34 @@
+<div class="display-box clearfix">
+  <h3>
+    <a class="btn">&lt;</a>
+    Tags for all time
+    <a class="btn">&gt;</a>
+  </h3>
+  <h4 class="tag-content">
+    <%= @tag.name %>
+    <span>used <%= pluralize(@components_count, 'time') %></span>
+  </h4>
+</div>
+
+
+<div id="timeline">
+  <ul>
+    <% @components.each do |key, components| %>
+      <li class="title">
+        <%= date_in_words(key) %>
+        <span>&#8377; <%= components.sum(&:amount) %></span>
+      </li>
+      <% components.each do |component| %>
+        <%= link_to(send("user_#{@get_component}_path", @user, component), :remote => true) do %>
+          <li>
+            <%= component.tag.name %>
+            <span>&#8377; <%= component.amount %></span>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div id="component-container"></div>
+<div class="clearfix"></div>

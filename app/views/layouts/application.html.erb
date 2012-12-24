@@ -22,11 +22,14 @@
         <div class="content">
           <%= render :partial => "layouts/notification" %>
           <%= yield %>
+          <div class="divider"></div>
+          <div class="clearfix"></div>
           <%= yield :popup %>
         </div>
       </div> <!--! end of .container -->
+      <footer class="footer">
+        &copy; 2012-13 Vision2020, All rights reserved.
+      </footer>
     </div> <!--! end of #main -->
-    <footer>
-    </footer>
   </body>
 </html>
