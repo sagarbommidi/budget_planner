@@ -13,7 +13,7 @@ gem 'jquery-rails'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-	gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', '>= 1.0.3'
 end
 
 group :production do
@@ -35,4 +35,3 @@ gem 'bootstrap-sass' # for using the views designs styles developed by the Twitt
 
 gem 'draper' # for using the features of Decorators in the application
 gem 'cells'
-gem 'draper'
