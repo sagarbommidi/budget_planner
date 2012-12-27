@@ -13,6 +13,12 @@ class ComponentCell < Cell::Rails
     render
   end
 
+  def edit(args)
+    @user = args[:user]
+    @component = args[:component]
+    render 'new'
+  end
+
   private
 
   def get_new_component(args)

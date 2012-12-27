@@ -1,0 +1,45 @@
+<%= form_for [@user, @component], :html => {:class => "form-horizontal"} do |f| %>
+  <div class="modal-body">
+    <div class="control-group">
+      <%= f.label :amount, "Amount", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :amount, :placeholder => "100.00", :id => "component-amount" %>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="tag_names">Tags</label>
+      <div class="controls">
+        <%= text_field_tag :tag_names, nil, :placeholder => "Tag Name", :value => get_tag_name(@component) %>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+    <% unless @user.tags.blank? %>
+      <div class="control-group tag-list" id="tag-list">
+        <ul>
+          <% @user.tags.each do |tag| %>
+            <li name-attr='<%= tag.name %>'><%= tag.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="control-group">
+      <label class="control-label" for="date">Date</label>
+      <div class="controls">
+        <%= f.text_field :generated_date, :value => I18n.localize(@component.generated_date, :format => "%d/%I/%Y"), :class => "date-field uneditable-input" %>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :description, "Description", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_area :description, :rows => 3, :placeholder => "Sample Description", :id => "component-description" %>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+  </div>
+  <div class="control-group buttons pull-right">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= f.submit get_button_text(@component), :class => "btn btn-primary", :id => "add-component-btn" %>
+  </div>
+<% end %>

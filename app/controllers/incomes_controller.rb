@@ -17,4 +17,14 @@ class IncomesController < ApplicationController
   def show
     @income = current_user.incomes.find(params[:id])
   end
+
+  def edit
+    @income = current_user.incomes.find(params[:id])
+  end
+
+  def update
+    @income = current_user.incomes.find(params[:id])
+    #TODO add the logic to update an income
+    redirect_to :back
+  end
 end
