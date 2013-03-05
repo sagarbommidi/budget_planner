@@ -1,33 +1,36 @@
-<h2>Sign in</h2>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal"} ) do |f| %>
-  <div class="control-group">
-    <%= f.label :email, :class => "control-label" %>
-    <div class="controls">
-      <%= f.email_field :email, :placeholder => "Email" %>
-    </div>
+<% if flash[:notice] && flash[:notice] != "Signed out successfully." %>
+  <div class="alert">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <%= flash[:notice] %>
   </div>
-
-  <div class="control-group">
-    <%= f.label :password, :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password, :placeholder => "Password" %>
-    </div>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="control-group">
-      <div class="controls">
-        <label class="checkbox">
-          <%= f.check_box :remember_me %>
-          Remember me
-        </label>
-        <%= f.submit "Sign in", :class => "btn" %>
-      </div>
-    </div>
-  <% end -%>
 <% end %>
 
+<div class="session-form">
+  <h2>Sign in to your account</h2>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'clearfix', :id => "auth-form"}) do |f| %>
+    <% if flash[:alert].present? %>
+      <div id="error_explanation">
+        <ul><li><%= flash[:alert] %></li></ul>
+      </div>
+    <% end %>
 
+    <div class="input">
+      <%= f.email_field :email, :placeholder => "Email" %>
+    </div>
+    <div class="input">
+      <%= f.password_field :password, :placeholder => "Password" %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+      <div class="input">
+        <%= f.check_box :remember_me, :id => "remember-me" %><span id="checkbox-title">Remember me</span>
+      </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <div class="actions clearfix">
+      <%= f.submit "Sign in", :class => "btn btn-green" %>
+    </div>
+  <% end %>
+</div>
+
+<p class="note">Don't you have an account? <%= link_to "Sign up", new_registration_path(resource_name) %></p>
+<p class="note"><%= link_to "Forgot your password?", new_password_path(resource_name) %> </p>

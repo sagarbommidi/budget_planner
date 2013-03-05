@@ -15,12 +15,17 @@ class Income
 
   default_scope order_by([:generated_date, :desc])
 
-  before_create :update_tag_counter
+  before_create :tag_counter_increment
+  before_destroy :tag_counter_decrement
 
   private
 
-  def update_tag_counter
+  def tag_counter_increment
     tag.inc(:incomes_counter, 1)
+  end
+
+  def tag_counter_decrement
+    tag.inc(:incomes_counter, -1)
   end
 
 end

@@ -5,7 +5,7 @@ body {
 
 #main .container {
   padding: 50px 0;
-  min-height: 713px;
+  min-height: 735px;
 }
 
 .navbar .brand {
@@ -164,6 +164,7 @@ form {
 }
 .form-horizontal .control-label {
   width: 130px;
+  font-weight: bold;
 }
 
 h3.myModalLabel {
@@ -545,3 +546,48 @@ h3.myModalLabel {
   padding-bottom: 15px;
   margin-bottom: 25px;
 }
+
+/*LOGIN PAGE*/
+.login-panel {
+  width: 415px;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+
+.login-title {
+  background: url("<%= asset_path 'title_bar.png' %>") no-repeat center 0;
+  height: 54px;
+  width: 336px;
+  position: relative;
+  padding: 0 20px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 50px;
+  margin-top: 39px;
+  text-shadow: 0 1px 1px #121212;
+}
+
+.login-bg {
+  background: url("<%= asset_path 'login_bg.png' %>") repeat-y center 0;
+  padding: 10px 24px 0;
+  width: 328px;
+}
+
+.login-bottom {
+  background: url("<%= asset_path 'login_bg_bottom.png' %>") no-repeat center 0;
+  height: 15px;
+  width: 376px;
+}
+
+.sign-control {
+  margin-left: 80px !important;
+}
+
+.sign-label {
+  width: 70px !important;
+}
+
+.sign-control input[type="text"] {
+  width: 225px;
+}
+/*END OF LOGIN PAGE*/

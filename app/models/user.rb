@@ -48,8 +48,8 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
-  validates_presence_of :email
-  validates_presence_of :encrypted_password
+  # validates_presence_of :email
+  # validates_presence_of :encrypted_password
 
   has_many :incomes, dependent: :destroy
   has_many :expenses, dependent: :destroy
