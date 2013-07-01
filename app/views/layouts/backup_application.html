@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetPlanner</title>
+    <%= stylesheet_link_tag  "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render :partial => "layouts/header" %>
+        </div>
+      </nav>
+    </div>
+    <div id="main" role="main">
+      <div class="container">
+        <% if current_user.present? %>
+          <%= render :partial => 'layouts/user_menu' %>
+        <% end %>
+        <div class="content">
+          <%= render :partial => "layouts/notification" %>
+          <%= yield %>
+          <div class="divider"></div>
+          <div class="clearfix"></div>
+          <%= yield :popup %>
+        </div>
+      </div> <!--! end of .container -->
+      <footer class="footer">
+        &copy; 2012-13 Vision2020, All rights reserved.
+      </footer>
+    </div> <!--! end of #main -->
+  </body>
+</html>

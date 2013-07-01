@@ -22,4 +22,9 @@ module ApplicationHelper
   def get_button_text(component)
     component.new_record? ? "Add #{component.class}" : "Update #{component.class}"
   end
+
+  def main_container_class
+    devise_controller? ? "" : "body-container" 
+  end
+
 end

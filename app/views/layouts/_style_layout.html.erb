@@ -1,0 +1,46 @@
+<header class="clearfix">
+  <div class="logo-banner">
+    <div class="logo">
+      <h1><a href="#">Money<span class="color">Planner</span></a></h1>
+      <p class="meta">Online Money Controller !!!</p>
+    </div>
+  </div>
+
+  <div class="pull-right">
+    <div class="social-links">
+      <ul class="pull-right">
+        <li><a href="#"><i class="icon-envelope"></i></a></li>
+        <li><a href="#"><i class="icon-phone"></i></a></li>
+        <li><a href="#"><i class="icon-twitter"></i></a></li>
+        <li><a href="#"><i class="icon-facebook-sign"></i></a></li>
+        <li><a href="#"><i class="icon-google-plus-sign"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="hlinks">
+      <% if current_user.present? %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "btn btn-info" %>
+      <% else %>
+        <a href="#" class="btn btn-success">Login</a>
+        <a href="#" class="btn btn-success">Register</a>
+      <% end %>
+    </div>
+  </div>
+</header>
+<hr class="main-devider">
+
+<% if current_user.present? %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <ul class="nav">
+          <li><a href="#"><i class="icon-home"></i></a></li>
+          <li><%= link_to "Income", user_incomes_path(current_user), :class => get_active_klass('incomes') %></li>
+          <li><%= link_to "Expenses", user_expenses_path(current_user), :class => get_active_klass('expenses') %></li>
+          <li><%= link_to "Budget", user_budgets_path(current_user), :class => get_active_klass('budgets') %></li>
+          <li><%= link_to "Profile", user_profile_path(current_user), :method => :get, :class => get_active_klass('profiles') %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

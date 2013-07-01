@@ -15,19 +15,18 @@
     <% end %>
 
     <div class="input">
-      <%= f.email_field :email, :placeholder => "Email" %>
+      <%= f.email_field :email, :placeholder => "Email", :class => "username-field" %>
     </div>
     <div class="input">
-      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.password_field :password, :placeholder => "Password", :class => "password-field" %>
     </div>
-    <% if devise_mapping.rememberable? -%>
-      <div class="input">
-        <%= f.check_box :remember_me, :id => "remember-me" %><span id="checkbox-title">Remember me</span>
-      </div>
-    <% end %>
 
     <div class="actions clearfix">
-      <%= f.submit "Sign in", :class => "btn btn-green" %>
+      <span class="login-checkbox">
+        <%= f.check_box :remember_me, :class => "login-checkbox" %>
+        <%= f.label :remember_me, "Remember me", :class => "choice" %>
+      </span>
+      <%= f.submit "Sign in", :class => "btn btn-green pull-right mtopm30" %>
     </div>
   <% end %>
 </div>
